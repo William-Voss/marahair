@@ -1,0 +1,113 @@
+@import 'tailwindcss';
+
+/* A Hero muda de layout pela PROPORÇÃO da tela, não pela largura: só faz
+   sentido jogar o texto sobre a área vazia da foto quando a tela é deitada.
+   Num tablet em pé (768×1024) a foto ocupa tudo e o texto ficaria em cima
+   dela — nesse caso vale o mesmo layout do celular. */
+@custom-variant wide (@media (min-width: 768px) and (min-aspect-ratio: 4/3) and (min-height: 540px));
+@custom-variant wide-lg (@media (min-width: 1200px) and (min-aspect-ratio: 4/3) and (min-height: 540px));
+/* Tela grande mas em pé (tablet): mesmo layout do celular, só que com mais ar. */
+@custom-variant tall-md (@media (min-width: 600px) and (max-aspect-ratio: 4/3));
+
+@theme inline {
+  --font-display: var(--font-cormorant);
+  --font-sans: var(--font-jost);
+
+  --color-rose: var(--rose);
+  --color-rose-deep: var(--rose-deep);
+  --color-rose-soft: var(--rose-soft);
+  --color-cream: var(--cream);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+}
+
+:root {
+  color-scheme: light;
+
+  /* Amostrados diretamente do fundo da foto da Hero (mara-hero.png) */
+  --rose: #d6bbaf;
+  --rose-deep: #c2a093;
+  --rose-soft: #e4d1c8;
+  --cream: #f7f3f0;
+  --ink: #2b211d;
+  --ink-soft: #6b5a52;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--rose);
+    color: var(--ink);
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    /* `clip` em vez de `hidden`: corta o transbordo lateral sem transformar o
+       body num container de scroll, o que quebraria o pin do ScrollTrigger. */
+    overflow-x: clip;
+  }
+
+  ::selection {
+    background-color: var(--ink);
+    color: var(--cream);
+  }
+}
+
+@utility eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+/* Em tela em pé a foto entra como uma faixa embaixo da Hero: a borda de cima se
+   dissolve no fundo rosa, que é exatamente a mesma cor do fundo do estúdio na
+   foto. Em tela deitada a foto ocupa tudo e não precisa de máscara. */
+.hero-feather {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 20%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 20%);
+}
+
+@media (min-width: 768px) and (min-aspect-ratio: 4/3) and (min-height: 540px) {
+  .hero-feather {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+}
+
+/* Traço que corre em loop no indicador de scroll da Hero. */
+@keyframes cue {
+  0% {
+    transform: translateX(-100%);
+  }
+  60%,
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+/* SplitText corta a linha na altura da caixa de texto; o respiro extra evita
+   que descendentes (g, p, y) sumam dentro da máscara. */
+.split-line {
+  padding-bottom: 0.14em;
+}
+
+/* Grão sutil sobre toda a página — dá textura de impressão e evita banding
+   nas áreas grandes de cor chapada. */
+.grain {
+  position: fixed;
+  inset: -50%;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
