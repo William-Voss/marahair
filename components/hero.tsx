@@ -83,7 +83,10 @@ export function Hero() {
         data-hero-media
         className="hero-feather relative min-h-[44svh] flex-1 tall-md:min-h-[50svh] wide:absolute wide:inset-0 wide:min-h-0"
       >
-        <div data-hero-img className="relative h-full w-full">
+        {/* `absolute inset-0` e não `h-full`: a altura do pai vem do `flex-1`,
+            e altura em % contra um pai sem `height` explícito colapsa para zero
+            no Safari — era o que fazia a foto sumir no celular e no tablet. */}
+        <div data-hero-img className="absolute inset-0">
           <Image
             src="/mara-hero.png"
             alt="Mara sorrindo, segurando um secador rosa, sobre fundo rosado de estúdio"
