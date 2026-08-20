@@ -6,7 +6,7 @@ import { useLinesReveal } from '@/lib/use-lines-reveal'
 
 // ⚠️ TEXTO PROVISÓRIO — rascunho para revisar com a Mara.
 const COPY = {
-  quote: '“O cabelo é a moldura do rosto — e a saúde dele começa muito antes do espelho.”',
+  quote: '“O cabelo é a moldura do rosto, e a saúde dele começa muito antes do espelho.”',
   attribution: 'Mara',
   role: 'Terapeuta capilar',
 }
