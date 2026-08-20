@@ -51,26 +51,14 @@ export function Hero() {
   )
 
   return (
-    <section id="inicio" ref={root} className="relative min-h-[100svh] overflow-hidden">
-      <div
-        data-hero-media
-        className="hero-feather absolute inset-x-0 bottom-0 h-[62svh] tall-md:h-[68svh] wide:inset-0 wide:h-auto"
-      >
-        <div data-hero-img className="relative h-full w-full">
-          <Image
-            src="/mara-hero.png"
-            alt="Mara sorrindo, segurando um secador rosa, sobre fundo rosado de estúdio"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-[50%_26%] wide:object-[54%_50%]"
-          />
-        </div>
-      </div>
-
+    <section
+      id="inicio"
+      ref={root}
+      className="relative flex min-h-[100svh] flex-col overflow-hidden wide:block"
+    >
       <div
         data-hero-copy
-        className="relative z-10 flex min-h-[100svh] flex-col px-5 pt-24 wide:justify-center wide:px-10 wide:pt-0"
+        className="relative z-10 px-5 pt-24 pb-8 wide:flex wide:min-h-[100svh] wide:flex-col wide:justify-center wide:px-10 wide:pt-0 wide:pb-0"
       >
         <p data-hero-fade className="eyebrow text-ink/75">
           {COPY.eyebrow}
@@ -89,6 +77,22 @@ export function Hero() {
         >
           {COPY.support}
         </p>
+      </div>
+
+      <div
+        data-hero-media
+        className="hero-feather relative min-h-[44svh] flex-1 tall-md:min-h-[50svh] wide:absolute wide:inset-0 wide:min-h-0"
+      >
+        <div data-hero-img className="relative h-full w-full">
+          <Image
+            src="/mara-hero.png"
+            alt="Mara sorrindo, segurando um secador rosa, sobre fundo rosado de estúdio"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[50%_26%] wide:object-[54%_50%]"
+          />
+        </div>
       </div>
 
       {/* Fica à esquerda, sobre a área lisa do fundo — no centro cairia em cima
