@@ -58,7 +58,7 @@ export function Hero() {
     >
       <div
         data-hero-copy
-        className="relative z-10 px-5 pt-20 pb-6 tall-md:pt-28 wide:flex wide:min-h-[100svh] wide:flex-col wide:justify-center wide:px-10 wide:pt-0 wide:pb-0"
+        className="relative z-10 px-5 pt-20 pb-3 tall-md:pt-28 wide:flex wide:min-h-[100svh] wide:flex-col wide:justify-center wide:px-10 wide:pt-0 wide:pb-0"
       >
         <p data-hero-fade className="eyebrow text-ink/75">
           {COPY.eyebrow}
@@ -92,7 +92,8 @@ export function Hero() {
             alt="Mara sorrindo, segurando um secador rosa, sobre fundo rosado de estúdio"
             fill
             priority
-            sizes="100vw"
+            sizes="(max-aspect-ratio: 4/3) 200vw, 120vw"
+            quality={90}
             className="object-cover object-[50%_26%] wide:object-[54%_50%]"
           />
         </div>

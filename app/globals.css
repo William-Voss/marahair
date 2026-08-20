@@ -75,8 +75,8 @@
    dissolve no fundo rosa, que é exatamente a mesma cor do fundo do estúdio na
    foto. Em tela deitada a foto ocupa tudo e não precisa de máscara. */
 .hero-feather {
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 20%);
-  mask-image: linear-gradient(to bottom, transparent 0%, #000 20%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 10%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 10%);
 }
 
 @media (min-width: 768px) and (min-aspect-ratio: 4/3) and (min-height: 540px) {
