@@ -58,7 +58,7 @@ export function Hero() {
     >
       <div
         data-hero-copy
-        className="relative z-10 px-5 pt-24 pb-8 wide:flex wide:min-h-[100svh] wide:flex-col wide:justify-center wide:px-10 wide:pt-0 wide:pb-0"
+        className="relative z-10 px-5 pt-[5.5rem] pb-6 wide:flex wide:min-h-[100svh] wide:flex-col wide:justify-center wide:px-10 wide:pt-0 wide:pb-0"
       >
         <p data-hero-fade className="eyebrow text-ink/75">
           {COPY.eyebrow}
@@ -81,7 +81,7 @@ export function Hero() {
 
       <div
         data-hero-media
-        className="hero-feather relative min-h-[44svh] flex-1 tall-md:min-h-[50svh] wide:absolute wide:inset-0 wide:min-h-0"
+        className="hero-feather relative min-h-[58svh] flex-1 tall-md:min-h-[62svh] wide:absolute wide:inset-0 wide:min-h-0"
       >
         {/* `absolute inset-0` e não `h-full`: a altura do pai vem do `flex-1`,
             e altura em % contra um pai sem `height` explícito colapsa para zero
