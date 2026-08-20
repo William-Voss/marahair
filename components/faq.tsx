@@ -101,36 +101,36 @@ export function Faq() {
   return (
     <section id="perguntas" ref={root} className="px-5 pb-[12svh] md:px-10 md:pb-[16svh]">
       <div className="mx-auto max-w-4xl pt-[12svh] md:pt-[18svh]">
-        <p className="eyebrow text-ink/45">{COPY.eyebrow}</p>
+        <p className="eyebrow text-ink/65">{COPY.eyebrow}</p>
         <h2
           ref={heading}
-          className="mt-5 font-display text-[2.4rem] leading-[1.02] font-light text-ink md:text-[4rem]"
+          className="mt-5 font-display text-[2.8rem] leading-[1.02] font-light text-ink md:text-[4.3rem]"
         >
           {COPY.heading}
         </h2>
 
-        <div className="mt-12 border-t border-ink/12 md:mt-16">
+        <div className="mt-12 border-t border-ink/20 md:mt-16">
           {questions.map((item, i) => (
-            <div key={item.question} data-faq-row className="border-b border-ink/12">
+            <div key={item.question} data-faq-row className="border-b border-ink/20">
               <button
                 type="button"
                 onClick={() => setOpen(open === i ? null : i)}
                 aria-expanded={open === i}
                 className="flex w-full items-start justify-between gap-6 py-6 text-left"
               >
-                <span className="font-display text-xl leading-snug font-normal text-ink md:text-2xl">
+                <span className="font-display text-[1.45rem] leading-snug font-normal text-ink md:text-[1.75rem]">
                   {item.question}
                 </span>
                 <span className="relative mt-1.5 block h-3.5 w-3.5 shrink-0">
                   <span data-faq-icon className="absolute inset-0 block">
-                    <span className="absolute top-1/2 left-0 block h-px w-full -translate-y-1/2 bg-ink/60" />
-                    <span className="absolute top-0 left-1/2 block h-full w-px -translate-x-1/2 bg-ink/60" />
+                    <span className="absolute top-1/2 left-0 block h-px w-full -translate-y-1/2 bg-ink/75" />
+                    <span className="absolute top-0 left-1/2 block h-full w-px -translate-x-1/2 bg-ink/75" />
                   </span>
                 </span>
               </button>
 
               <div data-faq-panel className="h-0 overflow-hidden">
-                <div className="max-w-[62ch] space-y-3 pr-10 pb-7 text-sm leading-relaxed font-light text-ink/65">
+                <div className="max-w-[62ch] space-y-3 pr-4 pb-7 text-base leading-relaxed text-ink/90 md:pr-10">
                   {item.answer.map((paragraph) => (
                     <p key={paragraph}>{paragraph}</p>
                   ))}
@@ -141,7 +141,7 @@ export function Faq() {
         </div>
 
         <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-[42ch] text-sm font-light text-ink/55">{COPY.footNote}</p>
+          <p className="max-w-[42ch] text-base text-ink/85">{COPY.footNote}</p>
           <a
             href={whatsappLink(MENSAGEM_GERAL)}
             target="_blank"

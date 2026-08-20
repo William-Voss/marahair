@@ -95,19 +95,19 @@ export function GrowingImage() {
         {/* A foto tem fundo claro, então nada de véu por cima dela toda: no celular
             escurece só o pé e no desktop só a esquerda, que é onde o fundo do
             estúdio está vazio e onde o texto se apoia. */}
-        <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/65 via-black/25 to-transparent md:hidden" />
-        <div className="absolute inset-0 hidden bg-gradient-to-r from-black/60 via-black/20 to-transparent md:block" />
+        <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/75 via-black/35 to-transparent md:hidden" />
+        <div className="absolute inset-0 hidden bg-gradient-to-r from-black/70 via-black/30 to-transparent md:block" />
 
         <div className="absolute inset-0 flex flex-col justify-end p-6 md:justify-center md:p-14 lg:p-20">
           <h2
             data-frame-copy
-            className="max-w-[12ch] font-display text-[2.6rem] leading-[1.02] font-light text-cream md:max-w-[10ch] md:text-[4.5rem] lg:text-[5.5rem]"
+            className="max-w-[12ch] font-display text-[3rem] leading-[1.02] font-light text-cream md:max-w-[10ch] md:text-[4.8rem] lg:text-[5.8rem]"
           >
             {COPY.heading}
           </h2>
           <p
             data-frame-copy
-            className="mt-4 max-w-[38ch] text-sm leading-relaxed font-light text-cream/75 md:mt-6 md:max-w-[34ch] md:text-base"
+            className="mt-4 max-w-[36ch] text-base leading-relaxed text-cream/90 md:mt-6 md:max-w-[34ch] md:text-lg"
           >
             {COPY.body}
           </p>

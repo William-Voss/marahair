@@ -111,20 +111,20 @@ export function SiteFooter() {
         <a
           ref={finalCta}
           href="#servicos"
-          className="block max-w-[16ch] font-display text-[2.4rem] leading-[1.02] font-light text-ink transition-opacity duration-500 hover:opacity-60 md:max-w-[20ch] md:text-[4.5rem] lg:text-[5.5rem]"
+          className="block max-w-[16ch] font-display text-[2.8rem] leading-[1.02] font-light text-ink transition-opacity duration-500 hover:opacity-60 md:max-w-[20ch] md:text-[4.8rem] lg:text-[5.8rem]"
         >
           {COPY.finalCta}
         </a>
 
         <div className="mt-16 grid grid-cols-2 gap-x-6 gap-y-12 md:mt-24 md:grid-cols-4">
           <div data-footer-col>
-            <p className="eyebrow text-ink/40">{COPY.navTitle}</p>
+            <p className="eyebrow text-ink/60">{COPY.navTitle}</p>
             <ul className="mt-5 space-y-2.5">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-sm font-light text-ink/70 transition-colors duration-300 hover:text-ink"
+                    className="text-base text-ink/90 transition-colors duration-300 hover:text-ink"
                   >
                     {link.label}
                   </a>
@@ -134,7 +134,7 @@ export function SiteFooter() {
           </div>
 
           <div data-footer-col>
-            <p className="eyebrow text-ink/40">{COPY.contactTitle}</p>
+            <p className="eyebrow text-ink/60">{COPY.contactTitle}</p>
             <ul className="mt-5 space-y-4">
               {contactLinks.map((link) => (
                 <li key={link.label}>
@@ -144,10 +144,10 @@ export function SiteFooter() {
                     rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                     className="group/link block"
                   >
-                    <p className="text-sm font-light text-ink/70 transition-colors duration-300 group-hover/link:text-ink">
+                    <p className="text-base text-ink/90 transition-colors duration-300 group-hover/link:text-ink">
                       {link.label}
                     </p>
-                    <p className="mt-0.5 text-sm font-light text-ink/40">{link.value}</p>
+                    <p className="mt-0.5 text-base font-light text-ink/70">{link.value}</p>
                   </a>
                 </li>
               ))}
@@ -155,7 +155,7 @@ export function SiteFooter() {
           </div>
 
           <div data-footer-col>
-            <p className="eyebrow text-ink/40">{COPY.followTitle}</p>
+            <p className="eyebrow text-ink/60">{COPY.followTitle}</p>
             <ul className="mt-5 space-y-4">
               {socialLinks.map((link) => {
                 const Icon = link.icon
@@ -168,18 +168,18 @@ export function SiteFooter() {
                         rel="noopener noreferrer"
                         className="flex items-center gap-3 transition-opacity duration-300 hover:opacity-60"
                       >
-                        <Icon className="h-4 w-4 text-ink/60" />
+                        <Icon className="h-[1.15rem] w-[1.15rem] text-ink/80" />
                         <div>
-                          <p className="text-sm font-light text-ink/70">{link.label}</p>
-                          <p className="mt-0.5 text-sm font-light text-ink/40">{link.value}</p>
+                          <p className="text-base text-ink/90">{link.label}</p>
+                          <p className="mt-0.5 text-base font-light text-ink/70">{link.value}</p>
                         </div>
                       </a>
                     ) : (
                       <div className="flex items-center gap-3">
-                        <Icon className="h-4 w-4 text-ink/60" />
+                        <Icon className="h-[1.15rem] w-[1.15rem] text-ink/80" />
                         <div>
-                          <p className="text-sm font-light text-ink/70">{link.label}</p>
-                          <p className="mt-0.5 text-sm font-light text-ink/40">{link.value}</p>
+                          <p className="text-base text-ink/90">{link.label}</p>
+                          <p className="mt-0.5 text-base font-light text-ink/70">{link.value}</p>
                         </div>
                       </div>
                     )}
@@ -190,15 +190,15 @@ export function SiteFooter() {
           </div>
 
           <div data-footer-col>
-            <p className="eyebrow text-ink/40">Onde / Quando</p>
-            <address className="mt-5 space-y-3 text-sm leading-relaxed font-light text-ink/70 not-italic">
+            <p className="eyebrow text-ink/60">Onde / Quando</p>
+            <address className="mt-5 space-y-3 text-base leading-relaxed text-ink/90 not-italic">
               <p>{COPY.address}</p>
-              <p className="text-ink/40">{COPY.hours}</p>
+              <p className="font-light text-ink/70">{COPY.hours}</p>
             </address>
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-3 border-t border-ink/10 py-8 text-xs font-light text-ink/40 sm:flex-row sm:items-center sm:justify-between md:mt-24">
+        <div className="mt-16 flex flex-col gap-3 border-t border-ink/10 py-8 text-sm font-light text-ink/70 sm:flex-row sm:items-center sm:justify-between md:mt-24">
           <p>{COPY.copyright}</p>
           <p>{COPY.credit}</p>
         </div>
@@ -208,7 +208,7 @@ export function SiteFooter() {
       <div className="overflow-hidden">
         <p
           data-footer-wordmark
-          className="text-center font-display text-[23vw] leading-[0.82] font-light tracking-[-0.02em] text-ink/12 select-none"
+          className="text-center font-display text-[23vw] leading-[0.82] font-light tracking-[-0.02em] text-ink/18 select-none"
         >
           Mara<span className="italic">Hair</span>
         </p>

@@ -103,7 +103,7 @@ export function SiteHeader() {
               goTo('#inicio')
             }}
             data-header-ink
-            className="font-display text-xl leading-none tracking-[0.02em] text-ink md:text-2xl"
+            className="font-display text-2xl leading-none tracking-[0.02em] text-ink md:text-[1.75rem]"
           >
             Mara<span className="font-light italic">Hair</span>
           </a>
@@ -151,7 +151,7 @@ export function SiteHeader() {
                         e.preventDefault()
                         goTo(link.href)
                       }}
-                      className="block py-1 font-display text-[2.6rem] leading-[1.15] font-light text-cream/90 transition-colors duration-300 hover:text-cream md:text-6xl"
+                      className="block py-1 font-display text-[3rem] leading-[1.15] font-light text-cream md:text-6xl"
                     >
                       {link.label}
                     </a>
@@ -161,7 +161,7 @@ export function SiteHeader() {
             </nav>
 
             <div className="md:pt-4">
-              <p className="eyebrow overflow-hidden text-cream/45">
+              <p className="eyebrow overflow-hidden text-cream/70">
                 <span data-menu-item className="block">
                   Serviços
                 </span>
@@ -176,12 +176,12 @@ export function SiteHeader() {
                         e.preventDefault()
                         goTo('#servicos')
                       }}
-                      className="flex items-baseline gap-4 text-cream/70 transition-colors duration-300 hover:text-cream"
+                      className="flex items-baseline gap-4 text-cream/85 transition-colors duration-300 hover:text-cream"
                     >
-                      <span className="text-[0.6rem] tracking-[0.2em] text-cream/35">
+                      <span className="text-[0.7rem] tracking-[0.2em] text-cream/70">
                         {service.number}
                       </span>
-                      <span className="font-display text-xl font-light md:text-2xl">
+                      <span className="font-display text-[1.35rem] font-light md:text-2xl">
                         {service.title}
                       </span>
                     </a>
@@ -191,7 +191,7 @@ export function SiteHeader() {
             </div>
           </div>
 
-          <div className="mt-14 flex flex-col gap-4 border-t border-cream/15 pt-6 text-sm font-light text-cream/60 sm:flex-row sm:items-center sm:justify-between">
+          <div className="mt-14 flex flex-col gap-4 border-t border-cream/15 pt-6 text-base font-light text-cream/85 sm:flex-row sm:items-center sm:justify-between">
             <span className="block overflow-hidden">
               <a
                 data-menu-item

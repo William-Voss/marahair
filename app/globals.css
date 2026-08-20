@@ -57,10 +57,18 @@
 }
 
 @utility eyebrow {
-  font-size: 0.6875rem;
-  font-weight: 400;
-  letter-spacing: 0.28em;
+  /* Cresce junto com a tela: no celular e no tablet o corpo pequeno com muito
+     tracking era o que mais forçava a vista. */
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .eyebrow {
+    font-size: 0.8125rem;
+  }
 }
 
 /* Em tela em pé a foto entra como uma faixa embaixo da Hero: a borda de cima se

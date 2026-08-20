@@ -72,20 +72,20 @@ export function Hero() {
         data-hero-copy
         className="relative z-10 flex min-h-[100svh] flex-col px-5 pt-24 wide:justify-center wide:px-10 wide:pt-0"
       >
-        <p data-hero-fade className="eyebrow text-ink/55">
+        <p data-hero-fade className="eyebrow text-ink/75">
           {COPY.eyebrow}
         </p>
 
         <h1
           ref={headline}
-          className="mt-4 max-w-[9ch] font-display text-[3.4rem] leading-[0.92] font-light tracking-[-0.01em] text-ink tall-md:text-[5rem] wide:mt-6 wide:max-w-[8ch] wide:text-[7rem] wide-lg:text-[8.5rem]"
+          className="mt-4 max-w-[9ch] font-display text-[3.9rem] leading-[0.92] font-light tracking-[-0.01em] text-ink tall-md:text-[6rem] wide:mt-6 wide:max-w-[8ch] wide:text-[7.5rem] wide-lg:text-[9rem]"
         >
           {COPY.headline}
         </h1>
 
         <p
           data-hero-fade
-          className="mt-6 max-w-[34ch] text-sm leading-relaxed font-light text-ink/70 tall-md:mt-8 tall-md:max-w-[42ch] tall-md:text-base wide:mt-8 wide:max-w-[34ch] wide:text-base"
+          className="mt-6 max-w-[32ch] text-base leading-relaxed text-ink/90 tall-md:mt-8 tall-md:max-w-[40ch] tall-md:text-lg wide:mt-8 wide:max-w-[34ch] wide:text-lg"
         >
           {COPY.support}
         </p>
@@ -100,7 +100,7 @@ export function Hero() {
         <span className="relative block h-px w-14 overflow-hidden bg-ink/20">
           <span className="absolute inset-y-0 left-0 w-1/2 animate-[cue_2.4s_ease-in-out_infinite] bg-ink/55" />
         </span>
-        <span className="eyebrow text-ink/45">{COPY.scrollCue}</span>
+        <span className="eyebrow text-ink/65">{COPY.scrollCue}</span>
       </div>
     </section>
   )

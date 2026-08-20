@@ -24,6 +24,8 @@ const COPY = {
  * em relação ao scroll: 1 acompanha a página, acima disso passa correndo,
  * abaixo fica para trás. É essa diferença que dá a profundidade.
  */
+type Box = { left: string; top: string; w: string; ar: string }
+
 type Work = {
   number: string
   title: string
@@ -34,8 +36,12 @@ type Work = {
   to: string
   speed: number
   front: boolean
-  sm: { left: string; top: string; w: string; ar: string }
-  lg: { left: string; top: string; w: string; ar: string }
+  /** Celular. */
+  sm: Box
+  /** Tela grande em pé (tablet): o `lg` em vw daria quadros minúsculos aqui. */
+  md: Box
+  /** Tela deitada, do tablet ao desktop. */
+  lg: Box
 }
 
 const works: Work[] = [
@@ -49,7 +55,8 @@ const works: Work[] = [
     speed: 1.25,
     front: true,
     sm: { left: '2%', top: '40%', w: '44vw', ar: '4 / 5' },
-    lg: { left: '5%', top: '40%', w: '18vw', ar: '4 / 5' },
+    md: { left: '4%', top: '34%', w: '40vw', ar: '4 / 5' },
+    lg: { left: '4%', top: '40%', w: 'max(20vw, 230px)', ar: '4 / 5' },
   },
   {
     number: '02',
@@ -61,7 +68,8 @@ const works: Work[] = [
     speed: 0.75,
     front: false,
     sm: { left: '46%', top: '85%', w: '44vw', ar: '3 / 4' },
-    lg: { left: '17%', top: '90%', w: '17vw', ar: '3 / 4' },
+    md: { left: '52%', top: '80%', w: '40vw', ar: '3 / 4' },
+    lg: { left: '17%', top: '90%', w: 'max(19vw, 215px)', ar: '3 / 4' },
   },
   {
     number: '03',
@@ -73,7 +81,8 @@ const works: Work[] = [
     speed: 1.15,
     front: true,
     sm: { left: '4%', top: '125%', w: '42vw', ar: '4 / 5' },
-    lg: { left: '62%', top: '60%', w: '21vw', ar: '4 / 5' },
+    md: { left: '6%', top: '122%', w: '40vw', ar: '4 / 5' },
+    lg: { left: '60%', top: '60%', w: 'max(23vw, 260px)', ar: '4 / 5' },
   },
   {
     number: '04',
@@ -85,7 +94,8 @@ const works: Work[] = [
     speed: 0.8,
     front: false,
     sm: { left: '50%', top: '145%', w: '42vw', ar: '3 / 4' },
-    lg: { left: '79%', top: '120%', w: '16vw', ar: '3 / 4' },
+    md: { left: '52%', top: '150%', w: '40vw', ar: '3 / 4' },
+    lg: { left: '77%', top: '120%', w: 'max(18vw, 205px)', ar: '3 / 4' },
   },
   {
     number: '05',
@@ -97,7 +107,8 @@ const works: Work[] = [
     speed: 0.95,
     front: false,
     sm: { left: '6%', top: '178%', w: '38vw', ar: '3 / 4' },
-    lg: { left: '7%', top: '155%', w: '19vw', ar: '4 / 5' },
+    md: { left: '8%', top: '182%', w: '38vw', ar: '3 / 4' },
+    lg: { left: '6%', top: '155%', w: 'max(21vw, 240px)', ar: '4 / 5' },
   },
   {
     number: '06',
@@ -109,7 +120,8 @@ const works: Work[] = [
     speed: 1.15,
     front: true,
     sm: { left: '52%', top: '220%', w: '40vw', ar: '4 / 5' },
-    lg: { left: '66%', top: '190%', w: '18vw', ar: '3 / 4' },
+    md: { left: '50%', top: '218%', w: '40vw', ar: '4 / 5' },
+    lg: { left: '64%', top: '190%', w: 'max(20vw, 225px)', ar: '3 / 4' },
   },
 ]
 
@@ -118,22 +130,26 @@ function Tile({ work }: { work: Work }) {
     <div
       data-rise
       data-speed={work.speed}
-      className="absolute top-[var(--t-sm)] left-[var(--l-sm)] w-[var(--w-sm)] md:top-[var(--t)] md:left-[var(--l)] md:w-[var(--w)]"
+      className="absolute top-[var(--t-sm)] left-[var(--l-sm)] w-[var(--w-sm)] tall-md:top-[var(--t-md)] tall-md:left-[var(--l-md)] tall-md:w-[var(--w-md)] wide:top-[var(--t)] wide:left-[var(--l)] wide:w-[var(--w)]"
       style={
         {
           '--l-sm': work.sm.left,
           '--t-sm': work.sm.top,
           '--w-sm': work.sm.w,
+          '--l-md': work.md.left,
+          '--t-md': work.md.top,
+          '--w-md': work.md.w,
           '--l': work.lg.left,
           '--t': work.lg.top,
           '--w': work.lg.w,
           '--ar-sm': work.sm.ar,
+          '--ar-md': work.md.ar,
           '--ar': work.lg.ar,
         } as React.CSSProperties
       }
     >
       <div
-        className="relative aspect-[var(--ar-sm)] w-full overflow-hidden ring-1 ring-ink/10 md:aspect-[var(--ar)]"
+        className="relative aspect-[var(--ar-sm)] w-full overflow-hidden ring-1 ring-ink/10 tall-md:aspect-[var(--ar-md)] wide:aspect-[var(--ar)]"
         style={
           work.src
             ? undefined
@@ -145,7 +161,7 @@ function Tile({ work }: { work: Work }) {
             src={work.src}
             alt={work.alt ?? work.title}
             fill
-            sizes="(max-width: 767px) 46vw, 22vw"
+            sizes="(max-width: 767px) 46vw, (max-aspect-ratio: 4/3) 42vw, 26vw"
             className="object-cover"
           />
         ) : (
@@ -213,7 +229,7 @@ export function WorksStatement() {
 
   return (
     <>
-      <section id="trabalhos" ref={root} className="relative h-[250svh] md:h-[280svh]">
+      <section id="trabalhos" ref={root} className="relative h-[250svh] wide:h-[280svh]">
         {/* Palco de uma tela que fica parado enquanto os quadros sobem por ele. */}
         <div className="sticky top-0 h-[100svh] overflow-hidden">
           {/* Quadros atrás do título. */}
@@ -224,12 +240,12 @@ export function WorksStatement() {
           </div>
 
           <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-5 text-center">
-            <p data-statement-fade className="eyebrow text-ink/45">
+            <p data-statement-fade className="eyebrow text-ink/65">
               {COPY.eyebrow}
             </p>
             <h2
               ref={heading}
-              className="mt-6 font-display text-[3.1rem] leading-[0.78] font-light text-ink md:mt-8 md:text-[5.5rem] lg:text-[6.5rem]"
+              className="mt-7 font-display text-[3.5rem] leading-[0.8] font-light text-ink tall-md:mt-9 tall-md:text-[6rem] wide:mt-9 wide:text-[6rem] wide-lg:text-[7rem]"
             >
               {COPY.headingLines.map((line, i) => (
                 <span key={line} className="block">
@@ -252,7 +268,7 @@ export function WorksStatement() {
         <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
           <p
             ref={body}
-            className="max-w-[46ch] text-sm leading-relaxed font-light text-balance text-ink/70 md:text-base"
+            className="max-w-[46ch] text-base leading-relaxed text-balance text-ink/90 md:text-lg"
           >
             {COPY.body}
           </p>

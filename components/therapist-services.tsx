@@ -90,17 +90,17 @@ export function TherapistServices() {
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-16">
           <div>
-            <p className="eyebrow text-ink/45">{COPY.eyebrow}</p>
+            <p className="eyebrow text-ink/65">{COPY.eyebrow}</p>
             <h2
               ref={heading}
-              className="mt-5 font-display text-[2.4rem] leading-[1.02] font-light text-ink md:max-w-[14ch] md:text-[4rem] lg:text-[4.5rem]"
+              className="mt-5 font-display text-[2.8rem] leading-[1.02] font-light text-ink md:max-w-[14ch] md:text-[4.3rem] lg:text-[4.9rem]"
             >
               {COPY.heading}
             </h2>
           </div>
           <p
             data-services-body
-            className="max-w-[42ch] text-sm leading-relaxed font-light text-ink/65 lg:pb-3 lg:text-right"
+            className="max-w-[42ch] text-base leading-relaxed text-ink/90 lg:pb-3 lg:text-lg lg:text-right"
           >
             {COPY.body}
           </p>
@@ -126,10 +126,10 @@ export function TherapistServices() {
           <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
 
           <div data-portrait-label className="absolute bottom-6 left-6 md:bottom-10 md:left-10">
-            <p className="font-display text-3xl leading-none font-light text-cream md:text-5xl">
+            <p className="font-display text-4xl leading-none font-light text-cream md:text-6xl">
               {COPY.portraitName}
             </p>
-            <p className="eyebrow mt-3 text-cream/65">{COPY.portraitRole}</p>
+            <p className="eyebrow mt-3 text-cream/85">{COPY.portraitRole}</p>
           </div>
         </div>
 
@@ -166,13 +166,13 @@ export function TherapistServices() {
               </div>
 
               <div className="mt-5 flex items-baseline gap-3">
-                <span className="text-[0.6rem] tracking-[0.2em] text-ink/35">{service.number}</span>
-                <h3 className="font-display text-2xl leading-tight font-normal text-ink">
+                <span className="text-[0.7rem] tracking-[0.2em] text-ink/65">{service.number}</span>
+                <h3 className="font-display text-[1.7rem] leading-tight font-normal text-ink md:text-[1.85rem]">
                   {service.title}
                 </h3>
               </div>
 
-              <p className="mt-3 text-sm leading-relaxed font-light text-ink/65">
+              <p className="mt-3 text-base leading-relaxed text-ink/90">
                 {service.description}
               </p>
 
@@ -180,7 +180,7 @@ export function TherapistServices() {
                 {service.treatments.map((treatment) => (
                   <li
                     key={treatment}
-                    className="border-b border-ink/10 py-2.5 text-xs font-light tracking-wide text-ink/55"
+                    className="border-b border-ink/15 py-3 text-sm font-light tracking-wide text-ink/85"
                   >
                     {treatment}
                   </li>
@@ -194,7 +194,7 @@ export function TherapistServices() {
                 href={whatsappLink(mensagemServico(service.title))}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-auto inline-flex items-center gap-2 self-start pt-6 text-ink/70 transition-colors duration-300 group-hover:text-ink after:absolute after:inset-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink"
+                className="mt-auto inline-flex items-center gap-2 self-start pt-6 text-ink/85 transition-colors duration-300 group-hover:text-ink after:absolute after:inset-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink"
               >
                 <span className="eyebrow">Agendar pelo WhatsApp</span>
                 <span

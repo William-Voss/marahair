@@ -40,17 +40,17 @@ export function QuoteSection() {
       <div className="mx-auto max-w-4xl text-center">
         <p
           ref={quote}
-          className="font-display text-[2rem] leading-[1.15] font-light text-balance text-ink md:text-[3.4rem] lg:text-[4rem]"
+          className="font-display text-[2.35rem] leading-[1.15] font-light text-balance text-ink md:text-[3.6rem] lg:text-[4.4rem]"
         >
           {COPY.quote}
         </p>
 
         <div className="mt-10 flex flex-col items-center gap-4 md:mt-14">
-          <span data-quote-mark className="block h-px w-16 origin-center bg-ink/25" />
-          <p data-quote-author className="eyebrow text-ink/60">
+          <span data-quote-mark className="block h-px w-16 origin-center bg-ink/35" />
+          <p data-quote-author className="eyebrow text-ink/75">
             {COPY.attribution}
           </p>
-          <p data-quote-author className="-mt-2 text-xs font-light text-ink/40">
+          <p data-quote-author className="-mt-2 text-sm text-ink/70">
             {COPY.role}
           </p>
         </div>
